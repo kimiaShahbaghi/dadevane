@@ -29,7 +29,7 @@ function Gender() {
         <label for="myCheckBox">با قوانین و مقررات موافقم</label>
       </div>
       <div className="button">
-        <button> ادامه </button>
+        <button id="genderButton"> ادامه </button>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import Age from "./components/Age";
 function App() {
   return (
     <div className="container">
-      <Age />
+      <Gender />
     </div>
   );
 }
