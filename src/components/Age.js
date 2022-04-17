@@ -11,7 +11,7 @@ function Age() {
         <SVG className="svg-age" />
       </div>
       <p> لطفا سال تولدت رو انتخاب کن</p>
-
+      <AgeSelector />
       <div className="button">
         <button> شروع </button>
         <p>

@@ -1,6 +1,13 @@
 import { useState } from "react";
 import Picker from "react-mobile-picker-scroll";
 
+const myRange = (start, end) => {
+  const length = end - start;
+  return Array.from({ length }, (_, i) => start + i);
+};
+let myArray = myRange(1340, 1402);
+myArray.splice(31, 0, "?");
+
 export default function AgeSelector() {
   const range = (start, end) => {
     return Array(end - start + 1)
@@ -9,7 +16,7 @@ export default function AgeSelector() {
   };
 
   const [optionGroups] = useState({
-    Year: range(1340, 1401),
+    Year: myArray,
   });
   const [valueGroups, setvalueGroups] = useState({
     Year: new Date().getFullYear(),
