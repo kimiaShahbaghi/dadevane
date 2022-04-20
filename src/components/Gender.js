@@ -1,35 +1,60 @@
 import React from "react";
 import Header from "./Header";
-//import { ReactComponent as BoyImg } from "./boy.svg";
-//import { ReactComponent as GirlImg } from "./girl.svg";
 import GirlImg from "./girl.svg";
 import BoyImg from "./boy.svg";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+//import { useDispatch } from "react-redux";
+//import { selectGender, isChecked } from "../rootSlice";
 
 function Gender() {
+  let [isDisable, setIsDisable] = useState(true);
+
+  const changeDisable = () => {
+    setIsDisable((isDisable = !isDisable));
+  };
+
+  const navigate = useNavigate();
+  //const dispatch = useDispatch();
+  //let chk = document.getElementById("myCheckBox").value;
+  //function checkboxHandler() {
+  // let chk = document.getElementById("myCheckBox").value;
+  // dispatch(isChecked(!chk));
+  //}
   return (
-    <div className="gender">
-      <Header />
-      <p id="gender-header">لطفا جنسیت خودت رو انتخاب کن</p>
-      <div className="parent">
-        <div className="child">
-          <div className="pic">
-            <img src={BoyImg} />
+    <div className="container">
+      <div className="gender">
+        <Header />
+        <p id="gender-header">لطفا جنسیت خودت رو انتخاب کن</p>
+        <div className="parent">
+          <div className="child" onClick={() => changeDisable()}>
+            <div className="pic">
+              <img src={BoyImg} alt="boy img" />
+            </div>
+            <p> آقا </p>
           </div>
-          <p> آقا </p>
-        </div>
-        <div className="child">
-          <div className="pic">
-            <img src={GirlImg} />
+          <div className="child" onClick={() => changeDisable()}>
+            <div className="pic">
+              <img src={GirlImg} alt="girl img" />
+            </div>
+            <p> خانم </p>
           </div>
-          <p> خانم </p>
         </div>
-      </div>
-      <div id="checkBox">
-        <input type="checkbox" id="myCheckBox" />
-        <label for="myCheckBox">با قوانین و مقررات موافقم</label>
-      </div>
-      <div className="button">
-        <button id="genderButton"> ادامه </button>
+        <div id="checkBox">
+          <input type="checkbox" id="myCheckBox" checked />
+          <label htmlFor="myCheckBox">با قوانین و مقررات موافقم</label>
+        </div>
+        <div className="button">
+          <button
+            id="genderButton"
+            disabled={isDisable}
+            onClick={() => {
+              navigate("/age");
+            }}
+          >
+            ادامه
+          </button>
+        </div>
       </div>
     </div>
   );
