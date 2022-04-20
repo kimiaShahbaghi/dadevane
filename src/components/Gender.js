@@ -9,8 +9,14 @@ import { useState } from "react";
 
 function Gender() {
   let [isDisable, setIsDisable] = useState(true);
+  let [gender, setGender] = useState();
 
-  const changeDisable = () => {
+  const selectWoman = () => {
+    setGender("woman");
+    setIsDisable((isDisable = !isDisable));
+  };
+  const selectMan = () => {
+    setGender("man");
     setIsDisable((isDisable = !isDisable));
   };
 
@@ -27,13 +33,13 @@ function Gender() {
         <Header />
         <p id="gender-header">لطفا جنسیت خودت رو انتخاب کن</p>
         <div className="parent">
-          <div className="child" onClick={() => changeDisable()}>
+          <div className="child" onClick={() => selectMan()}>
             <div className="pic">
               <img src={BoyImg} alt="boy img" />
             </div>
             <p> آقا </p>
           </div>
-          <div className="child" onClick={() => changeDisable()}>
+          <div className="child" onClick={() => selectWoman()}>
             <div className="pic">
               <img src={GirlImg} alt="girl img" />
             </div>
