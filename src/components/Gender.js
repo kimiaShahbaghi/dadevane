@@ -7,9 +7,11 @@ import { useState } from "react";
 //import { useDispatch } from "react-redux";
 //import { selectGender, isChecked } from "../rootSlice";
 
-function Gender() {
+function Gender(props) {
   let [isDisable, setIsDisable] = useState(true);
-  let [gender, setGender] = useState();
+  let [gender, setGender] = useState("");
+
+  props.func(gender);
 
   const selectWoman = () => {
     setGender("woman");
