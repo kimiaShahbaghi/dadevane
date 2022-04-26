@@ -4,7 +4,7 @@ import "./style.scss";
 function Header() {
   return (
     <div className="header">
-      <p> ! به داده وانه خوش آمدی</p>
+      <p className="header__text"> ! به داده وانه خوش آمدی</p>
     </div>
   );
 }

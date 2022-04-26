@@ -1,6 +1,9 @@
+import React, { useState } from "react";
 import "../src/components/style.scss";
 import Gender from "./components/Gender";
+
 import Age from "./components/Age";
+
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -8,8 +11,8 @@ function App() {
     console.log("gender is", data);
     return data;
   };
-
-  const gender = getGender;
+  let [gender, setGender] = useState(getGender());
+  console.log("can u see me?");
 
   return (
     <BrowserRouter>

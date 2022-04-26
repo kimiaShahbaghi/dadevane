@@ -1,40 +1,32 @@
 import React from "react";
-import AgeSelector from "./AgeSelector";
-import { ReactComponent as SVG } from "./girl.svg";
 import Header from "./Header";
+import GirlImg from "./girl.svg";
+import BoyImg from "./boy.svg";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import "./style.scss";
+import AgeSelector from "./AgeSelector";
 
-function Age(props) {
-  var imgSrc = "";
-  let showImg = props.gender;
-  console.log("FROM AGE", showImg);
-
-  (function chooseImg() {
-    if (showImg == "woman") {
-      imgSrc = "./girl.svg";
-      console.log(showImg);
-    } else {
-      imgSrc = "./boy.svg";
-      console.log("hi", showImg);
-    }
-  })();
-
+function Age() {
   return (
-    <div className="container">
-      <div className="age">
+    <div className="mycontainer">
+      <div className="mycontainer__header">
         <Header />
-        <div className="age-pic">
-          <img src={imgSrc} className="age-pic" />
+      </div>
+      <div className="mycontainer__content">
+        <div className="mycontainer__content__agePic">
+          <img src={BoyImg} />
         </div>
-        <div className="gender-p">
-          <p> لطفا سال تولدت رو انتخاب کن</p>{" "}
+        <p>لطفا سال تولدت رو انتخاب کن</p>
+        <div className="mycontainer__content__ageSelector">
+          <AgeSelector />
         </div>
-        <AgeSelector />
-        <div className="button">
-          <button> شروع </button>
-          <p>
-            <a href="#"> ! بدون وارد کردن سن شروع کن</a>
-          </p>
-        </div>
+      </div>
+      <div className="mycontainer__footer">
+        <button className="mycontainer__button">شروع</button>
+        <a href="#">
+          <p>! بدون وارد کردن سن شروع کن</p>
+        </a>
       </div>
     </div>
   );

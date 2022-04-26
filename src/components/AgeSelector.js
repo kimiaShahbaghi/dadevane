@@ -8,7 +8,6 @@ export default function AgeSelector() {
   };
   let myArray = myRange(1340, 1401);
   myArray.splice(31, 0, "؟");
-
   const [optionGroups] = useState({
     Year: myArray,
   });
@@ -21,7 +20,7 @@ export default function AgeSelector() {
   };
 
   return (
-    <div className="AgeSelector">
+    <div className="Test">
       {console.log("valuegroup", valueGroups)}
 
       <Picker
