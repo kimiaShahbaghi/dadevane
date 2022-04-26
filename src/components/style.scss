@@ -81,7 +81,24 @@ body {
     &:hover {
       border: 1px solid $button-color;
     }
-
+    &--selected {
+      border: 1px solid $button-color;
+      width: 42%;
+      display: grid;
+      grid-template-columns: 5fr 1fr;
+      border-radius: $radius;
+      img {
+        width: 24px;
+        height: 24px;
+        position: relative;
+        top: 0.813rem;
+        margin-right: 0.313rem;
+      }
+      .grid-p {
+        padding-left: 1.875rem;
+        padding-top: 0.8rem;
+      }
+    }
     img {
       width: 24px;
       height: 24px;
@@ -120,7 +137,7 @@ body {
     }
   }
 
-  &__button {
+  button {
     font-size: 1rem;
     font-weight: 700;
     width: 87%;
@@ -133,6 +150,10 @@ body {
     border: 1px solid $button-color;
     border-radius: $radius;
     color: #ffff;
+
+    &:disabled {
+      background-color: gray;
+    }
   }
 
   .picker-container {
