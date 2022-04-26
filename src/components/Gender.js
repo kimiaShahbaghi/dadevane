@@ -5,7 +5,7 @@ import BoyImg from "./boy.svg";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
-function NewGender() {
+function Gender() {
   const navigate = useNavigate();
   const [gender, setGender] = useState(undefined);
   let [check, setCheck] = useState(true);
@@ -99,4 +99,4 @@ function NewGender() {
   );
 }
 
-export default NewGender;
+export default Gender;
