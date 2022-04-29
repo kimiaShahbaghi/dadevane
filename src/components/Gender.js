@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import Header from "./Header";
 import GirlImg from "./girl.svg";
 import BoyImg from "./boy.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { selectedGender } from "../rootSlice";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
-function Gender() {
+function Gender(props) {
   const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const stateMood = useSelector((state) => state.gender.value);
   const [gender, setGender] = useState(undefined);
   let [check, setCheck] = useState(true);
   let [selected, setSelected] = useState(false);
@@ -39,6 +43,9 @@ function Gender() {
     }
   };
   const clickHandler = () => {
+    // dispatch(selectedGender(gender));
+    // console.log(stateMood, "state");
+    props.onSelectGender(gender);
     navigate("/age");
   };
   return (
@@ -87,11 +94,7 @@ function Gender() {
         </div>
       </div>
       <div className="mycontainer__footer">
-        <button
-          className="mycontainer__button"
-          disabled={buttonHandler()}
-          onClick={clickHandler}
-        >
+        <button disabled={buttonHandler()} onClick={clickHandler}>
           ادامه
         </button>
       </div>

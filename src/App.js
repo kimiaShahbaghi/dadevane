@@ -7,18 +7,20 @@ import Age from "./components/Age";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 function App() {
-  const getGender = (data) => {
-    console.log("gender is", data);
-    return data;
+  const [gender, setGender] = useState("");
+  const saveGenderHandler = (enteredGender) => {
+    setGender(enteredGender);
   };
-  let [gender, setGender] = useState(getGender());
-  console.log("can u see me?");
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Gender func={getGender} />} />
-        <Route exact path="/age" element={<Age gender={gender} />} />
+        <Route
+          exact
+          path="/"
+          element={<Gender onSelectGender={saveGenderHandler} />}
+        />
+        <Route exact path="/age" element={<Age selectedGender={gender} />} />
       </Routes>
     </BrowserRouter>
   );

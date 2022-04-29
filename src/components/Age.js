@@ -7,7 +7,11 @@ import { useState } from "react";
 import "./style.scss";
 import AgeSelector from "./AgeSelector";
 
-function Age() {
+function Age(props) {
+  const gender = props.selectedGender;
+  console.log(gender, "from age");
+  let imgSrc = "";
+  gender === "man" ? (imgSrc = BoyImg) : (imgSrc = GirlImg);
   return (
     <div className="mycontainer">
       <div className="mycontainer__header">
@@ -15,7 +19,7 @@ function Age() {
       </div>
       <div className="mycontainer__content">
         <div className="mycontainer__content__agePic">
-          <img src={BoyImg} />
+          <img src={imgSrc} />
         </div>
         <p>لطفا سال تولدت رو انتخاب کن</p>
         <div className="mycontainer__content__ageSelector">
@@ -23,7 +27,7 @@ function Age() {
         </div>
       </div>
       <div className="mycontainer__footer">
-        <button className="mycontainer__button">شروع</button>
+        <button>شروع</button>
         <a href="#">
           <p>! بدون وارد کردن سن شروع کن</p>
         </a>
